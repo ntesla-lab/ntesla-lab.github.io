@@ -6,10 +6,15 @@
   const params = new URLSearchParams(window.location.search);
   const code = params.get('code');
   const state = params.get('state');
-  // Rimanda il code all’app Android via deep-link
-  const appUrl = `mynikola://auth/callback?code=${encodeURIComponent(code||"")}&state=${encodeURIComponent(state||"")}`;
-  window.location.replace(appUrl);
+
+  if (code) {
+    // Rimanda il code all’app Android via deep-link
+    const appUrl = `mynikola://auth/callback?code=${encodeURIComponent(code)}&state=${encodeURIComponent(state||"")}`;
+    window.location.replace(appUrl);
+  } else {
+    document.write("<h1>GitHub Pages OK ✅</h1>");
+  }
 </script>
-Redirecting to the app...
 </body>
 </html>
+
