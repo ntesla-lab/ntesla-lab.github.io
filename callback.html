@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="it">
+<head><meta charset="UTF-8"><title>Tesla OAuth Callback</title></head>
+<body>
+  <h2>Autenticazione completata</h2>
+  <p id="info">Attendere...</p>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    if (code) {
+      document.getElementById("info").innerText = "Authorization code: " + code;
+      console.log("CODE:", code);
+    } else {
+      document.getElementById("info").innerText = "Nessun codice ricevuto.";
+    }
+  </script>
+</body>
+</html>
